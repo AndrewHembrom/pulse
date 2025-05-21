@@ -27,11 +27,11 @@ export default function RootLayout({
           >
             <div className="flex min-h-screen w-full flex-col">
               <Header />
-              <div className="flex flex-1 flex-col px-4 pt-10 xl:px-8">
+              <main className="flex flex-1 flex-col px-4 pt-10 xl:px-8">
                 {children}
-              </div>
+              </main>
             </div>
-            <Toaster />
+            <Toaster richColors />
           </ThemeProvider>
         </body>
       </html>
