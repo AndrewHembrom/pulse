@@ -36,4 +36,6 @@ export async function getUser() {
         console.error(userObject.error);
         return null
     }
+  
+  return userObject.data.user;
 }
