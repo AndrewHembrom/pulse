@@ -1,6 +1,7 @@
 "use server"
 
 import { createClient } from "@/auth/server"
+import { prisma } from "@/db/prisma";
 import { handleError } from "@/lib/utils";
 
 export const loginAction = async (email: string, password: string) => {
@@ -46,7 +47,12 @@ export const SignUpAction = async (email: string, password: string) => {
         const userId = data.user?.id;
         if (!userId) throw new Error("Error signing up");
 
-        // add user to database
+        await prisma.user.create({
+            data: {
+                id: userId,
+                email,
+            }
+        })
 
         return { errorMessage: null };
 
